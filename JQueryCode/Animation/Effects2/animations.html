@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>animation</title>
+</head>
+<body>
+    <button id="start">Start Animation</button>
+<button id="stop">Stop Animation</button>
+<div id="stopBox" style="width:100px;height:100px;background:blue;position:relative;"></div>
+
+<script>
+    $(document).ready(function(){
+        $("#start").click(function(){
+            $("#stopBox").animate({left: '250px'}, 3000);
+        });
+        $("#stop").click(function(){
+            $("#stopBox").stop();
+        });
+    });
+</script>
+
+</body>
+</html>

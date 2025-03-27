@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Fade in fade out</title>
+</head>
+<body>
+    <!-- <button id="FadeInBtn">Fade in</button>
+   <button id="FadeOutBtn">Fade out</button> -->
+
+   <!-- <p id="fadeText" style="display: none">This is the text</p> -->
+
+
+   <!-- <button id="fadeToggleBtn">Fadetoggle</button>
+   <p id="fadetoggletext">Toggle</p> -->
+   <button id="fadeTo">FadeTobtn</button>
+   <p id="fadeToText">Fade to 50%</p>
+
+
+   <script>
+    $(document).ready(function(){
+
+        $("#fadeTo").click(function(){
+            $("#fadeToText").fadeTo(2000,0.5);
+        })
+        // $("#fadeToggleBtn").click(function(){
+        //     $("#fadetoggletext").fadeToggle();
+        // })
+
+        // $("#FadeInBtn").click(function(){
+        //     $("#fadeText").fadeIn();
+        // });
+        // $("#FadeOutBtn").click(function(){
+        //     $("#fadeText").fadeOut();
+        // });
+    })
+   </script>
+</body>
+</html>

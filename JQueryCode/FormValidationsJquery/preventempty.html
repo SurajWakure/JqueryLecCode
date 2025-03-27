@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Prevent empty result</title>
+</head>
+<body>
+    <form id="myForm">
+        <label>Enter Name:</label>
+        <input type="text" id="name" placeholder="Type your name" value="">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $("#myForm").submit(function (event) {
+                var name = $("#name").val().trim();  
+
+                if (name === "") {
+                    alert("Name field cannot be empty!"); 
+                    event.preventDefault(); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

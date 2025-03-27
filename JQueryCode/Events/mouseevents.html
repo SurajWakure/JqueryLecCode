@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Mouse event</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: lightgrey;
+            text-align: center;
+            line-height: 100px;
+            font-size: bold;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hover over me</div>
+    <h2>type something in your box</h2>
+    <input type="text" placeholder="start typing....." id="inputbox">
+    <p id="msg"></p>
+
+    <input type="text" id="inputField" placeholder="Click me">
+
+
+
+    <form id="formSubmit">
+      
+        <input type="text" placeholder="email">
+        <input type="password" placeholder="password">
+        <button type="submit">login</button>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $("#formSubmit").submit(function(){
+                alert("Logged in");
+            })
+
+
+
+
+            $("#inputField").focus(function(){
+                $(this).css("background-color","green");
+            });
+            $("#inputField").blur(function(){
+                $(this).css("background-color","");
+            });
+
+
+
+            $("#inputbox").keydown(function(){
+                $("#msg").text("Key pressed");
+            });
+            $("#inputbox").keyup(function(){
+                $("#msg").text("Key released");
+            });
+
+
+
+
+
+
+            $("#box").mouseenter(function(){
+                $(this).css("background-color","lightblue").text("mouse entered");
+            });
+            $("#box").mouseleave(function(){
+                $(this).css("background-color","lightgrey").text("mouse out");
+            });
+        });
+    </script>
+</body>
+</html>

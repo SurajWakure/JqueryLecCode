@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Email Validation</title>
+</head>
+<body>
+    <input type="text" id="emailInput" placeholder="Enter your email">
+    <button id="validateBtn">Validate</button>
+    <p id="message" style="color: red;"></p>
+
+    <script>
+        $(document).ready(function(){
+            $("#validateBtn").click(function(){
+                var email = $("#emailInput").val();
+                var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                if(emailPattern.test(email)) {
+                    $("#message").text("Valid email!").css("color", "green");
+                } else {
+                    $("#message").text("Invalid email format.").css("color", "red");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/png" href="c571f0cc6b7f165ff5f18d00540a8c07.jpg">  <!-- Add your favicon here -->
+    <title>Get Set</title>
+</head>
+<body>
+    <div id="para">Orignal text</div>
+    <script>
+        $(document).ready(function(){
+            var originaltext=$("#para").text();
+            alert(originaltext);
+            $("#para").text("changed text");
+            
+
+        })
+    </script>
+</body>
+</html>

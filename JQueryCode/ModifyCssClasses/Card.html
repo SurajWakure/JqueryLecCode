@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Card</title>
+    <style>
+        .card{
+            width:250px;
+            border:1px solid #ccc;
+            padding:15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+        }
+    img{
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+        text-align: center;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    button{
+        margin-top: 10px;
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img id="profilePic" src="default.jpg" alt="ProfilePicture">
+        <h2 id="name">Default Name</h2>
+        <p id="age">Age:00</p>
+        <button id="updateBtn">Update Info</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#updateBtn").click(function(){
+                $("#name").text("Virat Kohli");
+                $("#age").text("Age:24");
+                $("#profilePic").attr("src","tkh89oc8_cas_625x300_18_October_24.webp")
+            })
+        })
+    </script>
+</body>
+</html>

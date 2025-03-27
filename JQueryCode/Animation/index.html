@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery .hide() & .show()</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   <!-- <button id="hideBtn">Hide</button>
+   <button id="showBtn">Show</button> -->
+
+   <button id="toggleOnOff">Toggle</button>
+   <p id="text">Hello i am here</p>
+
+   <script>
+    $(document).ready(function(){
+        // $("#hideBtn").click(function(){
+        //     $("#text").hide();
+        // });
+        // $("#showBtn").click(function(){
+        //     $("#text").show();
+        // });
+
+        $("#toggleOnOff").click(function(){
+            $("#text").toggle(1000);
+        })
+    })
+   </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Child and Sibling</title>
+</head>
+<body>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <ol>
+            <li>Nested Item 1</li>
+            <li>Nested Item 2</li>
+        </ol>
+    </ul>
+
+    <div>
+        <span>Span 1</span>
+        <p>Para 1</p>
+        <span>Span 2</span>
+    </div>
+    <p>
+        <span>Span 3</span>
+        <span>Span 4</span>
+    </p>
+
+    <h1>Main Heading</h1>
+    <p>First paragraph</p>
+    <p>Second Paragraph</p>
+
+    <h1>Main Heading</h1>
+    <p>First paragraph</p>
+    <p>Second Paragraph</p>
+    <script>
+        $(document).ready(function(){
+            $("ul > li").css("color","blue");
+            $("div span").css("font-weight","bold");
+            $("h1 + p").css("font-style","italic");
+            
+
+        });
+    </script>
+</body>
+</html>

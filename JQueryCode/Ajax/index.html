@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Management</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+         #loader {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: blue;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h2>Doctor Management</h2>
+
+    <!-- Fetch Doctors -->
+    <button onclick="getDoctors()">Load Doctors</button>
+    <p id="loader">Loading, please wait...</p>
+    <ul id="doctorList"></ul>
+
+
+    <!-- Add Doctor -->
+    <h3>Add Doctor</h3>
+    <input type="text" id="doctorName" placeholder="Enter Name">
+    <input type="text" id="doctorSpecialization" placeholder="Enter Specialization">
+    <button onclick="addDoctor()">Add Doctor</button>
+
+    <!-- Update Doctor -->
+    <h3>Update Doctor</h3>
+    <input type="number" id="updateId" placeholder="Enter Doctor ID">
+    <input type="text" id="updateName" placeholder="Enter New Name">
+    <input type="text" id="updateSpecialization" placeholder="Enter New Specialization">
+    <button onclick="updateDoctor()">Update Doctor</button>
+
+    <!-- Delete Doctor -->
+    <h3>Delete Doctor</h3>
+    <input type="number" id="deleteId" placeholder="Enter Doctor ID">
+    <button onclick="deleteDoctor()">Delete Doctor</button>
+
+    <script>
+        // 1️⃣ GET Request - Fetch Doctors
+        function getDoctors() {
+            $("#doctorList").empty(); // Clear previous data
+            $("#loader").css("display", "block"); // Show loader before fetching
+
+            $.ajax({
+                url: "https://localhost:7128/api/Doctors/GetDoctors", // Your API endpoint
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    setTimeout(function () { // Optional delay for smooth UX
+                        $.each(data, function (index, doctor) {
+                            $("#doctorList").append("<li>" + doctor.id + " - " + doctor.name + " (" + doctor.specialization + ")</li>");
+                        });
+                        $("#loader").css("display", "none"); // Hide loader after data is rendered
+                    }, 500);
+                },
+                error: function (error) {
+                    console.log("Error:", error);
+                    $("#loader").css("display", "none"); // Hide loader on error
+                }
+            });
+        }
+
+        // 2️⃣ POST Request - Add a Doctor
+        function addDoctor() {
+            var doctor = {
+                Name: $("#doctorName").val(),
+                Specialization: $("#doctorSpecialization").val()
+            };
+
+            $.ajax({
+                url: "https://localhost:7128/api/Doctors/AddDoctor",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(doctor),
+                success: function (response) {
+                    alert(response.message);
+                    getDoctors(); // Refresh list
+                },
+                error: function (error) {
+                    console.log("Error:", error);
+                }
+            });
+        }
+
+        // 3️⃣ PUT Request - Update Doctor
+        function updateDoctor() {
+            var id = $("#updateId").val();
+            var doctor = {
+                Name: $("#updateName").val(),
+                Specialization: $("#updateSpecialization").val()
+            };
+
+            $.ajax({
+                url: "https://localhost:7128/api/Doctors/UpdateDoctor/" + id,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(doctor),
+                success: function (response) {
+                    alert(response.message);
+                    getDoctors(); // Refresh list
+                },
+                error: function (error) {
+                    console.log("Error:", error);
+                }
+            });
+        }
+
+        // 4️⃣ DELETE Request - Delete Doctor
+        function deleteDoctor() {
+            var id = $("#deleteId").val();
+
+            $.ajax({
+                url: "https://localhost:7128/api/Doctors/DeleteDoctor/" + id,
+                type: "DELETE",
+                success: function (response) {
+                    alert(response.message);
+                    getDoctors(); // Refresh list
+                },
+                error: function (error) {
+                    console.log("Error:", error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

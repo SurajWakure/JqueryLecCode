@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Attr()</title>
+</head>
+<body>
+    <img id="rohit" src="Rohit-Sharma-plays-a-shot-during-the-ICC-Champions_1741450071042.jpg" width="600px" height="400" alt="">
+    <button id="kohli">kohli</button>
+    <script>
+        $(document).ready(function(){
+            $("#kohli").click(function(){
+                var rohitimg=$("#rohit").attr("src");
+                alert(rohitimg);
+                $("#rohit").attr("src","tkh89oc8_cas_625x300_18_October_24.webp");
+            })
+        })
+    </script>
+</body>
+</html>

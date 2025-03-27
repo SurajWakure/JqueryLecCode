@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .hidden-div{
+            display: none;
+            padding: 10px;
+            background: lightblue;
+            margin: 5px 0;
+        }
+    </style>
+    <title>VisibilityandPositionalSelectors</title>
+</head>
+<body>
+    <h2>click to show</h2>
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">hide</button>
+    <p class="hidden-div">p1</p>
+    <p class="hidden-div">p2</p>
+    <p class="hidden-div">p3</p>
+
+
+    <ul>
+        <!-- <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li> -->
+    </ul>
+
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $("#showBtn").click(function(){
+               $("p:hidden").fadeIn(1000); 
+            });
+            $("#hideBtn").click(function(){
+               $("p:visible").hide(1000); 
+            });
+
+            $("li:first").css("color","blue");
+            $("li:last").css("color","red");
+            $("li:eq(2)").css("color","green");
+            $("li:lt(3)").css("color","orange");
+
+        });
+    </script>
+
+</body>
+</html>

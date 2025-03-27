@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enabled selector (enabled inputs)</h2>
+    <input type="text" id="enabledInput" value="I am enabled">
+    <input type="text" id="disabledInput" value="I am disabled" disabled>
+    <button id="checkEnabled">Highlight Enabled Fields</button>
+
+    <h2>Disabled selector (disabled inputs)</h2>
+    <input type="text" id="enabledInput2" value="I am enabled">
+    <input type="text" id="disabledInput2" value="I am disabled" disabled>
+    <button id="checkDisabled">Highlight Disabled Fields</button>
+
+    <h2>:checked selectro(Find Checked Inputs)</h2>
+    <input type="checkbox" id="agree">I agree <br>
+    <input type="radio" name="gender" value="Male">Male
+    <input type="radio" name="gender" value="Male">Female <br>
+    <button id="checkChecked">check selection</button>
+
+    <h2>focus Selected(highlight focused input)</h2>
+    <input type="text" placeholder="click here">
+    <input type="text" placeholder="check there">
+    <p id="focusText"></p>
+
+    <script>
+        $(document).ready(function(){
+            //:enabled -highlight enabled field
+          $("#checkEnabled").click(function(){
+            $(":enabled").css("background-color","lightgreen");
+          });
+
+          $("#checkDisabled").click(function(){
+            $(":disabled").css("background-color","lightcoral");
+          });
+
+          $("#checkChecked").click(function(){
+            let checkvalues=$(":checked").map(function(){
+                return this.value || "checkbox checked";
+            }).get();
+            alert("checked values:"+(checkvalues.length ? checkvalues.join(","):"none"));
+          });
+    //       <h2>focus Selected(highlight focused input)</h2>
+    // <input type="text" placeholder="click here">
+    // <input type="text" placeholder="check there">
+    // <p id="focusText"></p>
+          $(":input").focus(function(){
+            $(this).css("border","2px solid blue");
+            $("#focusText").text("Focused on:"+$(this).attr("placeholder"));
+          }).blur(function(){
+            $(this).css("border","")
+          });
+
+        });
+    </script>
+</body>
+</html>

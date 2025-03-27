@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Content based selectors</title>
+    <style>
+        div{
+            padding:10px;
+            border:1px solid red;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <p>this is the jquery lector</p>
+    <p>jquery is easy to understand</p>
+    <p>Its featurs are best</p>
+
+    <!-- <div>contains info</div>
+    <div></div>
+    <div>another content</div>
+    <div></div> -->
+
+
+    <div>
+        <p>this is first child</p>
+    </div>
+    <div>
+        <h1></h1>
+    </div>
+    <div>
+        <span>this is the span for element</span>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("p:contains('Its')").css("color","blue");
+            // $("div:empty").hide();
+            $("div:parent").css("border","1px solid green");
+        })
+    </script>
+</body>
+</html>

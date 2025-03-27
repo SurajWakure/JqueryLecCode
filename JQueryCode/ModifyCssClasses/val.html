@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Val</title>
+</head>
+<body>
+    <input type="text" id="name" value="Mohan">
+    <button id="submit">Submit</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#submit").click(function(){
+                alert("the value is "+ $("#name").val())
+                $("#name").val("Nitin");
+            })
+        })
+    </script>
+</body>
+</html>

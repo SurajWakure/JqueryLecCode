@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Each</title>
+</head>
+<body>
+    <ul>
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>
+    </ul>
+    <button id="clickme">show</button>
+    <script>
+        $(document).ready(function(){
+            $("#clickme").click(function(){
+                $("li").each(function(index,element){
+                    alert("itemId:"+(index+1)+"element:"+$(element).text());
+                })
+            })
+        })
+    </script>
+</body>
+</html>

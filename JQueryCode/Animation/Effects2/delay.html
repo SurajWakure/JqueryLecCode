@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Delay</title>
+</head>
+<body>
+    <button id="delayBtn">Start Animation with Delay</button>
+<div id="delayBox" style="width:100px;height:100px;background:green;position:relative;"></div>
+
+<script>
+    $(document).ready(function(){
+        $("#delayBtn").click(function(){
+            $("#delayBox").delay(2000).animate({left: '250px'}, 1000);
+        });
+    });
+</script>
+
+</body>
+</html>

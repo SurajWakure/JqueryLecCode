@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Prop</title>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="agreeCheckBox">I agree to the conditions
+    </label>
+    <button id="submitBtn" disabled>submit</button>
+    <script>
+        $(document).ready(function(){
+            let $checkbox=$("#agreeCheckBox");
+            let $Btn=$("#submitBtn");
+
+            $checkbox.on("change",function(){
+                let isChecked=$checkbox.prop("checked");
+
+                $Btn.prop("disabled",!isChecked);
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="lightslider.min.css" />
+    <script src="lightslider.min.js"></script>
+          
+    
+
+    <style>
+        #lightSlider {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #lightSlider li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eee;
+            border-radius: 10px;
+        }
+        #lightSlider img {
+            width: 100%;
+            height: 650px;
+            border-radius: 10px;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lightSlider">
+        <li>
+            <img src="licensed-image.jpg" alt="First Slide">
+        </li>
+        <li>
+            <img src="virat-kohli-064557281-16x9_0.avif" alt="Second Slide">
+        </li>
+        <li>
+            <img src="tkh89oc8_cas_625x300_18_October_24.webp" alt="Third Slide">
+        </li>
+    </ul>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $("#lightSlider").lightSlider({
+              item: 1,
+              autoWidth: false,
+              slideMove: 1, 
+              slideMargin: 10,
+              mode: "slide",
+              speed: 400, 
+              auto: true, 
+              loop: true, 
+              pause: 3000,
+              keyPress: true,
+              pager: true,
+              enableTouch: true, 
+              enableDrag: true, 
+              responsive: [
+                  {
+                      breakpoint: 768,
+                      settings: { item: 2 }
+                  },
+                  {
+                      breakpoint: 480,
+                      settings: { item: 1 }
+                  }
+              ]
+          });
+        });
+      </script>
+      
+</body>
+</html>

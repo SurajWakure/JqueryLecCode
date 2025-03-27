@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owl Carousel - One Image at a Time</title>
+
+    <!-- Owl Carousel CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <style>
+        /* Center the carousel */
+        .owl-carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        /* Ensure images fit properly */
+        .owl-carousel img {
+            width: auto; /* Keep original width */
+            height: 2500px; /* Fixed height */
+            max-width: 100%; /* Prevent overflow */
+            object-fit: cover; /* Ensures the image covers the frame */
+            border-radius: 10px; /* Optional: Rounded corners */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Carousel Structure -->
+    <div class="owl-carousel">
+        <img src="licensed-image.jpg" alt="Image 1">
+        <img src="virat-kohli-064557281-16x9_0.avif" alt="Image 2">
+        <img src="tkh89oc8_cas_625x300_18_October_24.webp" alt="Image 3">
+        <img src="virat-kohli-064557281-16x9_0.avif" alt="Image 4">
+        <img src="tkh89oc8_cas_625x300_18_October_24.webp" alt="Image 5">
+    </div>
+
+    <!-- jQuery & Owl Carousel JS (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                items: 1,  // Show one image at a time
+                loop: true, // Infinite scrolling
+                margin: 10, // Spacing between images
+                lazyLoad: true, // Load images only when needed
+                autoplay: true, // Enable auto-slide
+                autoplayTimeout: 2000, // Slide every 2 seconds
+                autoplayHoverPause: true, // Pause on hover
+                nav: true,  // Show navigation arrows
+                dots: true  // Show pagination dots
+            });
+        });
+    </script>
+
+</body>
+</html>

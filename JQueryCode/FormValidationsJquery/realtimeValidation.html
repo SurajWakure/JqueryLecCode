@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Real time Vlaidation</title>
+    <style>
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid gray;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="password" id="password" placeholder="Enter password">
+    <p id="message"></p>
+
+    <script>
+        $("#password").on("keyup", function () {
+            let password = $(this).val();
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!passwordPattern.test(password)) {
+                $(this).css("border", "2px solid red");
+                $("#message").text("Weak password! Use uppercase, lowercase, number & special character.")
+                             .css("color", "red");
+            } else {
+                $(this).css("border", "2px solid green");
+                $("#message").text("Strong password!").css("color", "green");
+            }
+        });
+    </script>
+
+</body>
+</html>
